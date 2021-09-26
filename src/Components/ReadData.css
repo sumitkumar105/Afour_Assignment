@@ -1,0 +1,24 @@
+* {
+  padding: 0%;
+  margin: 0%;
+}
+.main_data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.section_1 {
+  margin-top: 20px;
+  height: 300px;
+  width: auto;
+  overflow: scroll;
+}
+td,
+th {
+  border: 2px solid black;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 8px;
+}

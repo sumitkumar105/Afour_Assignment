@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
-import './App.css';
-
-function App() {
-  const [counter,setCounter]=useState<number>(0);
+import React from "react";
+// import ReadData from "./Components/ReadData";
+import data from "./Components/Data";
+import UserInputForm from "./Components/Forms/UserInputForm";
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <h1>counter: {counter}</h1>
-      <button onClick={()=>setCounter(counter+1)}>clicked me</button>
-    </div>
+    <>
+      <UserInputForm />
+      {/* <ReadData /> */}
+    </>
   );
-}
-
+};
 export default App;
