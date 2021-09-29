@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "../Forms/form.css";
-import RemoveData from "../RemoveData";
-import data from "../Data";
-import ReadData from "../ReadData";
-import SortingData from "../SortingData";
+import RemoveData from "../Pages/RemoveData";
+import data from "../Pages/Data";
+import ReadData from "../Pages/ReadData";
+import SortingData from "../Pages/SortingData";
+import moment from "react-moment";
 function UserInputForm() {
   const [active, setActive] = useState("");
   const [name, setName] = useState({
@@ -12,8 +13,6 @@ function UserInputForm() {
     description: "",
     createdAt: "",
   });
-  const [count, setCount] = useState([]);
-
   function FetchData() {
     setActive("first");
   }
@@ -23,24 +22,51 @@ function UserInputForm() {
   const DeleteData = () => {
     setActive("third");
   };
-  function handleSubmit(v: any) {
+  // console.log(name);
+
+  function handleSubmit(v: any): void {
+    console.log("cheking parameter", v);
+
     console.log(name);
+    let roll = data.length + 1;
+    const d = new Date();
+    let newDate =
+      d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
+    if (!name.title && !name.description) {
+      alert("entered valid details!!!");
+      console.log("form is not valisate");
+    } else {
+      data.push({
+        id: roll,
+        title: name.title,
+        description: name.description,
+        createdAt: newDate,
+      });
+      console.log(data);
+
+      setName({ id: "", title: "", description: "", createdAt: "" });
+      console.log("validate");
+    }
+    v.preventDefault();
   }
   return (
     <div>
       <h1>user input form</h1>
       <div className="section1">
-        <form onSubmit={handleSubmit}>
-          <div className="first_input">
+        <form>
+          {/* <div className="first_input">
             <input
-              type="text"
+              required
+              type="string"
+              pattern="[0-9]*"
               placeholder="id"
               value={name.id}
               onChange={(e) => setName({ ...name, id: e.target.value })}
             />
-          </div>
+          </div> */}
           <div className="first_input">
             <input
+              required
               type="text"
               placeholder="title"
               value={name.title}
@@ -49,6 +75,7 @@ function UserInputForm() {
           </div>
           <div className="first_input">
             <input
+              required
               type="text"
               placeholder="description"
               value={name.description}
@@ -57,16 +84,19 @@ function UserInputForm() {
               }
             />
           </div>
-          <div className="first_input">
+          {/* <div className="first_input">
             <input
+              required
               type="text"
               placeholder="createdAt"
               value={name.createdAt}
               onChange={(e) => setName({ ...name, createdAt: e.target.value })}
             />
-          </div>
+          </div> */}
+          {/* {name.id}
+          {name.title} */}
           <div className="button1">
-            <input type="submit" placeholder="submit" />
+            <button onClick={handleSubmit}>submit</button>
           </div>
         </form>
       </div>
@@ -86,9 +116,7 @@ function UserInputForm() {
       <div>
         {active === "first" && <ReadData />}
         {active === "second" && <SortingData />}
-        {active === "third" && (
-          <RemoveData data={"data deleted sucessfully!!"} />
-        )}
+        {active === "third" && <RemoveData />}
       </div>
     </div>
   );

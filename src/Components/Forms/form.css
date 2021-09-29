@@ -12,9 +12,11 @@ h1 {
   margin: auto;
   height: 80%;
   width: 20%;
+  box-shadow: 0 1rem 2rem hsl(0 0% 0% / 20%);
   background-color: blueviolet;
-  border-radius: 10px;
+  border-radius: 24px;
 }
+
 form {
   margin: auto;
   width: 30%;

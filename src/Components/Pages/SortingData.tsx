@@ -1,6 +1,6 @@
 import React from "react";
-import data from "../Components/Data";
-import "../Components/ReadData.css";
+import data from "../Pages/Data";
+import "../Pages/ReadData.css";
 const SortingData = () => {
   const sortedData = data.sort(function (a: any, b: any): any {
     if (a.title.toLowerCase() < b.title.toLowerCase()) return -1;
@@ -36,6 +36,3 @@ const SortingData = () => {
   );
 };
 export default SortingData;
-
-// // Display data with new order !
-// console.log(MyData);
