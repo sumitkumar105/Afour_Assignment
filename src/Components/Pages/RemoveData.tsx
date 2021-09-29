@@ -1,13 +1,9 @@
-import { count } from "console";
 import React, { useState } from "react";
-import { getOriginalNode } from "typescript";
 import getData from "../Pages/Data";
 function RemoveData() {
   let i = 0;
-  // const deleteData;
-  // const [del, setDel] = useState("");
+
   const [check, setCheck] = useState("");
-  // const [Count, setCount] = useState(getData);
   const [FindData, setFindData] = useState([
     {
       id: 0,
@@ -16,15 +12,13 @@ function RemoveData() {
       createdAt: "",
     },
   ]);
-
-  console.log();
   const handleRemoveItem = (e: any) => {
     console.log(check);
     const check_id = parseInt(check);
     for (i; i < getData.length; i++) {
       if (
         getData[i].id === check_id &&
-        check_id != 0 &&
+        check_id !== 0 &&
         check_id <= getData.length
       ) {
         console.log(getData[i]);
@@ -34,7 +28,6 @@ function RemoveData() {
           description: getData[i].description,
           createdAt: getData[i].createdAt,
         };
-        // // const Count = checkData;
         setFindData([checkData]);
 
         console.log(checkData);
@@ -69,7 +62,7 @@ function RemoveData() {
             {Object.values(FindData).map((v, index) => {
               console.log(v);
               return (
-                <tr>
+                <tr key={v.id}>
                   <td>{v.id}</td>
                   <td>{v.title}</td>
                   <td>{v.description}</td>

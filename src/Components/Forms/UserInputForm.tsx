@@ -4,7 +4,6 @@ import RemoveData from "../Pages/RemoveData";
 import data from "../Pages/Data";
 import ReadData from "../Pages/ReadData";
 import SortingData from "../Pages/SortingData";
-import moment from "react-moment";
 function UserInputForm() {
   const [active, setActive] = useState("");
   const [name, setName] = useState({
