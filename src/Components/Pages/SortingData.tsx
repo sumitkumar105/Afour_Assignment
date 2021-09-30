@@ -21,7 +21,7 @@ const SortingData = () => {
             </tr>
             {sortedData.map((v) => {
               return (
-                <tr>
+                <tr key={v.id}>
                   <td>{v.id}</td>
                   <td>{v.title}</td>
                   <td>{v.description}</td>

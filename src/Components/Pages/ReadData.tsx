@@ -3,8 +3,6 @@ import data from "../Pages/Data";
 import "../Pages/ReadData.css";
 console.log(data);
 const ReadData: React.FC = (props) => {
-  //   const useData = props.name;
-  //   console.log("usedaat", useData);
   const [val, setVal] = useState(data);
 
   const handleRemoveItem = (e: any) => {
@@ -26,7 +24,7 @@ const ReadData: React.FC = (props) => {
           </tr>
           {val.map((v, index) => {
             return (
-              <tr>
+              <tr key={v.id}>
                 <td>{v.id}</td>
                 <td>{v.title}</td>
                 <td>{v.description}</td>
