@@ -15,7 +15,7 @@ function UserInputForm() {
   function FetchData() {
     setActive("first");
   }
-  const SortData = () => {
+  const SortData = (e: any) => {
     setActive("second");
   };
   const DeleteData = () => {
@@ -31,6 +31,7 @@ function UserInputForm() {
     const d = new Date();
     let newDate =
       d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
+
     if (!name.title && !name.description) {
       alert("entered valid details!!!");
       console.log("form is not valisate");
